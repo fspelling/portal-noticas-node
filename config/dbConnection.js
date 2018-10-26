@@ -1,5 +1,3 @@
-var mysql = require('mysql');
-
 var conMySql = function () {
     var mysql = require('mysql');
 
