@@ -1,16 +1,9 @@
 module.exports = function (app) {
     app.get('/form_noticia', function (req, res) {
-        res.render('admin/form_add_noticia');
+        app.app.controllers.admin.form_inclusao(app, req, res);
     });
 
     app.post('/noticias/salvar', function (req, res) {
-        var noticias = req.body;
-        
-        var myConn = app.config.dbConnection();
-        var noticiasModel = app.app.model.noticiasModel;
-
-        noticiasModel.salvarNoticia(noticias, myConn, function (err, results) {
-            res.redirect('/noticias');
-        });
+        app.app.controllers.admin.form_inclusao_salvar(app, req, res);
     });
 }
